@@ -1,10 +1,12 @@
 from flask import Flask, jsonify
+from flask_cors import CORS
 import subprocess
 import socket
 import psutil
 import time
 
 app = Flask(__name__)
+CORS(app)  # Fix
 
 
 def get_cpu_temp():
@@ -61,4 +63,5 @@ def pi_info():
 
 
 if __name__ == "__main__":
+    print("🔥 Flask server running WITH CORS 🔥")
     app.run(host="0.0.0.0", port=5000)
